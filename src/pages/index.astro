@@ -5,46 +5,32 @@ import NewsCard from '../components/NewsCard.astro';
 
 const newsArticles = [
   {
-    title: "El Impacto de la Inflación en el Mercado de Valores",
-    description: "Un análisis detallado sobre cómo la inflación afecta a las inversiones y las estrategias para proteger tu patrimonio.",
+    title: "Garry, ¿funciona el robot de trading de Inversor Global?",
+    description: "Análisis escéptico de Garry (robot de trading de Inversor Global): cómo opera, copy trading con Exness, riesgos, resultados, costos y si vale la pena.",
+    image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop",
+    link: "/articulos/garry-robot-trading-inversor-global",
+    category: "Trading"
+  },
+  {
+    title: "Qué es el slippage: definición, cálculo y cómo reducirlo",
+    description: "Descubre qué es el slippage, cómo se calcula, por qué afecta tu rendimiento real y técnicas para reducirlo (órdenes limit, slicing, horarios, liquidez y latencia).",
     image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop",
-    link: "/articulos/impacto-inflacion-mercado",
-    category: "Análisis"
-  },
-  {
-    title: "Criptomonedas: ¿Burbuja o Futuro de las Finanzas?",
-    description: "Exploramos el auge de las criptomonedas, sus riesgos y oportunidades, y si representan una inversión segura a largo plazo.",
-    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&h=500&fit=crop",
-    link: "/articulos/criptomonedas-futuro-finanzas",
-    category: "Cripto"
-  },
-  {
-    title: "Guía para Invertir en Bienes Raíces en 2025",
-    description: "Consejos prácticos para principiantes y expertos sobre cómo invertir en el mercado inmobiliario y maximizar tus ganancias.",
-    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop",
-    link: "/articulos/guia-invertir-bienes-raices",
-    category: "Inversiones"
-  },
-  {
-    title: "Análisis del Mercado de Bonos: Tendencias 2025",
-    description: "Un informe completo sobre el mercado de bonos, incluyendo las últimas tendencias, riesgos y oportunidades para los inversores.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    link: "/articulos/mercado-bonos-tendencias",
-    category: "Bonos"
-  },
-  {
-    title: "Finanzas Personales: Cómo Ahorrar Inteligentemente",
-    description: "Estrategias efectivas para mejorar tus finanzas personales, desde la creación de un presupuesto hasta el ahorro para metas a largo plazo.",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=500&fit=crop",
-    link: "/articulos/finanzas-personales-ahorro",
+    link: "/articulos/que-es-slippage-definicion-calculo",
     category: "Educación"
   },
   {
-    title: "Inteligencia Artificial en Trading: Nueva Era",
-    description: "Cómo la IA está revolucionando el trading y qué significa para los inversores tradicionales en el mercado actual.",
-    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
-    link: "/articulos/ia-trading-revolucion",
-    category: "Tecnología"
+    title: "Qué es el drawdown: definición, cálculo y por qué es clave en trading",
+    description: "Aprende qué es el drawdown, cómo calcular el máximo drawdown (MDD), por qué afecta tu estrategia y cómo reducirlo con gestión de riesgo y diversificación.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+    link: "/articulos/que-es-drawdown-definicion-calculo",
+    category: "Análisis"
+  },
+  {
+    title: "Gestión de riesgo 101: Guía completa de copy trading paso a paso",
+    description: "Aprende a invertir con copy trading con una gestión de riesgo profesional: tamaños, drawdown, slippage, límites diarios, due diligence y plan de implementación en 4 semanas.",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=500&fit=crop",
+    link: "/articulos/gestion-riesgo-copy-trading",
+    category: "Inversiones"
   }
 ];
 ---
@@ -84,15 +70,15 @@ const newsArticles = [
     <section id="noticias" class="py-5">
       <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-5">
-          <h2 class="h3 fw-bold mb-0">Noticias Recientes</h2>
-          <a href="/todas-las-noticias" class="text-primary fw-semibold text-decoration-none">
-            Ver todas →
+          <h2 class="h3 fw-bold mb-0">Artículos Recientes</h2>
+          <a href="/todos-los-articulos" class="text-primary fw-semibold text-decoration-none">
+            Ver todos →
           </a>
         </div>
         
         <div class="row g-4">
           {newsArticles.map((article, index) => (
-            <div class="col-12 col-md-6 col-lg-4" style={`animation-delay: ${index * 0.1}s`}>
+            <div class="col-12 col-md-6 col-lg-6" style={`animation-delay: ${index * 0.1}s`}>
               <NewsCard {...article} />
             </div>
           ))}
@@ -142,7 +128,7 @@ const newsArticles = [
               src="https://cdn2.inversorglobal.com/Cartas-Venta/2025/9.Septiembre/bajo-lupa/logo.png" 
               alt="Bajo la Lupa" 
               width="40"
-              height="auto"
+              height="40"
             />
             <h3 class="h5 mb-0">Bajo la Lupa</h3>
           </div>
@@ -155,8 +141,8 @@ const newsArticles = [
           <h4 class="h6 fw-bold mb-3">Enlaces Rápidos</h4>
           <ul class="list-unstyled">
             <li class="mb-2"><a href="/" class="text-decoration-none">Inicio</a></li>
-            <li class="mb-2"><a href="/noticias" class="text-decoration-none">Noticias</a></li>
-            <li class="mb-2"><a href="/analisis" class="text-decoration-none">Análisis</a></li>
+            <li class="mb-2"><a href="/articulos" class="text-decoration-none">Artículos</a></li>
+            <li class="mb-2"><a href="/trading" class="text-decoration-none">Trading</a></li>
             <li class="mb-2"><a href="/contacto" class="text-decoration-none">Contacto</a></li>
           </ul>
         </div>
