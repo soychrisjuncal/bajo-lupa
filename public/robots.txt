@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://soychrisjuncal.github.io/bajo-lupa/sitemap-index.xml
