@@ -1,16 +1,237 @@
 ---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import NewsCard from '../components/NewsCard.astro';
 
+const newsArticles = [
+  {
+    title: "El Impacto de la Inflación en el Mercado de Valores",
+    description: "Un análisis detallado sobre cómo la inflación afecta a las inversiones y las estrategias para proteger tu patrimonio.",
+    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop",
+    link: "/articulos/impacto-inflacion-mercado",
+    category: "Análisis"
+  },
+  {
+    title: "Criptomonedas: ¿Burbuja o Futuro de las Finanzas?",
+    description: "Exploramos el auge de las criptomonedas, sus riesgos y oportunidades, y si representan una inversión segura a largo plazo.",
+    image: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&h=500&fit=crop",
+    link: "/articulos/criptomonedas-futuro-finanzas",
+    category: "Cripto"
+  },
+  {
+    title: "Guía para Invertir en Bienes Raíces en 2025",
+    description: "Consejos prácticos para principiantes y expertos sobre cómo invertir en el mercado inmobiliario y maximizar tus ganancias.",
+    image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800&h=500&fit=crop",
+    link: "/articulos/guia-invertir-bienes-raices",
+    category: "Inversiones"
+  },
+  {
+    title: "Análisis del Mercado de Bonos: Tendencias 2025",
+    description: "Un informe completo sobre el mercado de bonos, incluyendo las últimas tendencias, riesgos y oportunidades para los inversores.",
+    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+    link: "/articulos/mercado-bonos-tendencias",
+    category: "Bonos"
+  },
+  {
+    title: "Finanzas Personales: Cómo Ahorrar Inteligentemente",
+    description: "Estrategias efectivas para mejorar tus finanzas personales, desde la creación de un presupuesto hasta el ahorro para metas a largo plazo.",
+    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=500&fit=crop",
+    link: "/articulos/finanzas-personales-ahorro",
+    category: "Educación"
+  },
+  {
+    title: "Inteligencia Artificial en Trading: Nueva Era",
+    description: "Cómo la IA está revolucionando el trading y qué significa para los inversores tradicionales en el mercado actual.",
+    image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=500&fit=crop",
+    link: "/articulos/ia-trading-revolucion",
+    category: "Tecnología"
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<Layout 
+  title="Bajo la Lupa - Blog de Finanzas y Mercado" 
+  description="Noticias, análisis y consejos sobre inversiones, mercado financiero, criptomonedas y economía global."
+>
+  <Header />
+  
+  <main class="py-5">
+    <!-- Hero Section -->
+    <section class="hero-section py-5 mb-5">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4 fw-bold mb-4 animate-fade-in">
+              Noticias Financieras <span class="text-primary">al Descubierto</span>
+            </h1>
+            <p class="lead text-muted mb-4 animate-fade-in" style="animation-delay: 0.2s;">
+              Análisis profundo del mercado, inversiones inteligentes y tendencias económicas que impactan tu futuro financiero.
+            </p>
+            <div class="d-flex gap-3 justify-content-center animate-fade-in" style="animation-delay: 0.4s;">
+              <a href="#noticias" class="btn btn-primary btn-lg px-4">
+                Ver Noticias
+              </a>
+              <a href="/suscribirse" class="btn btn-outline-primary btn-lg px-4">
+                Suscribirse
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- News Grid -->
+    <section id="noticias" class="py-5">
+      <div class="container">
+        <div class="d-flex justify-content-between align-items-center mb-5">
+          <h2 class="h3 fw-bold mb-0">Noticias Recientes</h2>
+          <a href="/todas-las-noticias" class="text-primary fw-semibold text-decoration-none">
+            Ver todas →
+          </a>
+        </div>
+        
+        <div class="row g-4">
+          {newsArticles.map((article, index) => (
+            <div class="col-12 col-md-6 col-lg-4" style={`animation-delay: ${index * 0.1}s`}>
+              <NewsCard {...article} />
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="newsletter-section py-5 mt-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <div class="newsletter-card p-5 rounded-4 text-center">
+              <h2 class="h3 fw-bold mb-3">📧 Mantente Informado</h2>
+              <p class="text-muted mb-4">
+                Recibe las últimas noticias financieras directamente en tu correo. Sin spam, solo contenido de valor.
+              </p>
+              <form class="row g-3 justify-content-center">
+                <div class="col-md-7">
+                  <input 
+                    type="email" 
+                    class="form-control form-control-lg" 
+                    placeholder="tu@email.com"
+                    required
+                  />
+                </div>
+                <div class="col-md-auto">
+                  <button type="submit" class="btn btn-primary btn-lg w-100">
+                    Suscribirse
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer bg-dark text-white py-5 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img 
+              src="https://cdn2.inversorglobal.com/Cartas-Venta/2025/9.Septiembre/bajo-lupa/logo.png" 
+              alt="Bajo la Lupa" 
+              width="40"
+              height="40"
+            />
+            <h3 class="h5 mb-0">Bajo la Lupa</h3>
+          </div>
+          <p class="text-muted">
+            Tu fuente confiable de noticias y análisis del mercado financiero.
+          </p>
+        </div>
+        
+        <div class="col-lg-4">
+          <h4 class="h6 fw-bold mb-3">Enlaces Rápidos</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/" class="text-muted text-decoration-none">Inicio</a></li>
+            <li class="mb-2"><a href="/noticias" class="text-muted text-decoration-none">Noticias</a></li>
+            <li class="mb-2"><a href="/analisis" class="text-muted text-decoration-none">Análisis</a></li>
+            <li class="mb-2"><a href="/contacto" class="text-muted text-decoration-none">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4">
+          <h4 class="h6 fw-bold mb-3">Síguenos</h4>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px;">
+              <span class="d-flex align-items-center justify-content-center">𝕏</span>
+            </a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px;">
+              <span class="d-flex align-items-center justify-content-center">in</span>
+            </a>
+            <a href="#" class="btn btn-outline-light btn-sm rounded-circle" style="width: 40px; height: 40px;">
+              <span class="d-flex align-items-center justify-content-center">▶</span>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="my-4 border-secondary" />
+      
+      <div class="text-center text-muted small">
+        <p class="mb-0">© 2025 Bajo la Lupa. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  .hero-section {
+    background: linear-gradient(135deg, #f6f7f8 0%, #ffffff 100%);
+  }
+
+  .newsletter-card {
+    background: linear-gradient(135deg, #1173d4 0%, #0d5ba8 100%);
+    color: white;
+  }
+
+  .newsletter-card h2,
+  .newsletter-card p {
+    color: white;
+  }
+
+  .newsletter-card .form-control {
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    background: rgba(255, 255, 255, 0.95);
+  }
+
+  .newsletter-card .form-control:focus {
+    border-color: white;
+    box-shadow: 0 0 0 0.25rem rgba(255, 255, 255, 0.25);
+  }
+
+  .newsletter-card .btn-primary {
+    background: white;
+    color: var(--primary-color);
+    border-color: white;
+  }
+
+  .newsletter-card .btn-primary:hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+
+  .footer a:hover {
+    color: var(--primary-color) !important;
+  }
+
+  @media (max-width: 768px) {
+    .hero-section h1 {
+      font-size: 2rem;
+    }
+    
+    .newsletter-card {
+      padding: 2rem 1.5rem !important;
+    }
+  }
+</style>

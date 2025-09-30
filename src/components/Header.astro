@@ -1,0 +1,160 @@
+---
+// Header component
+---
+
+<header class="header-sticky bg-white shadow-sm">
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <div class="container-fluid px-4 px-lg-5">
+      <!-- Logo y Título -->
+      <a class="navbar-brand d-flex align-items-center gap-3" href="/">
+        <img 
+          src="https://cdn2.inversorglobal.com/Cartas-Venta/2025/9.Septiembre/bajo-lupa/logo.png" 
+          alt="Bajo la Lupa Logo" 
+          class="logo-img"
+          width="40"
+          height="40"
+        />
+        <span class="brand-text">Bajo la Lupa</span>
+      </a>
+
+      <!-- Botón hamburguesa móvil -->
+      <button 
+        class="navbar-toggler" 
+        type="button" 
+        data-bs-toggle="collapse" 
+        data-bs-target="#navbarNav"
+        aria-controls="navbarNav" 
+        aria-expanded="false" 
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menú de navegación -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-4">
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Inicio</a>
+          </li>
+          
+          <!-- Dropdown Noticias -->
+          <li class="nav-item dropdown">
+            <a 
+              class="nav-link dropdown-toggle" 
+              href="#" 
+              role="button" 
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Noticias
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="/ultimas-noticias">Últimas Noticias</a></li>
+              <li><a class="dropdown-item" href="/mercado-valores">Mercado de Valores</a></li>
+              <li><a class="dropdown-item" href="/criptomonedas">Criptomonedas</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" href="/analisis">Análisis Técnico</a></li>
+            </ul>
+          </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="/contacto">Contacto</a>
+          </li>
+          
+          <!-- Botón de búsqueda -->
+          <li class="nav-item">
+            <button class="btn btn-outline-primary btn-sm rounded-circle search-btn" aria-label="Buscar">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+              </svg>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header-sticky {
+    position: sticky;
+    top: 0;
+    z-index: 1030;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.95) !important;
+  }
+
+  .logo-img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+  }
+
+  .navbar-brand:hover .logo-img {
+    transform: scale(1.05);
+  }
+
+  .brand-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    letter-spacing: -0.5px;
+  }
+
+  .nav-link {
+    font-weight: 500;
+    color: var(--gray-800);
+    transition: color 0.3s ease;
+    padding: 0.5rem 1rem;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    color: var(--primary-color) !important;
+  }
+
+  .search-btn {
+    width: 38px;
+    height: 38px;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-width: 2px;
+  }
+
+  .search-btn:hover {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: white;
+  }
+
+  .dropdown-menu {
+    border: none;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 0.75rem 0;
+  }
+
+  .dropdown-item {
+    padding: 0.5rem 1.5rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+  }
+
+  .dropdown-item:hover {
+    background-color: rgba(17, 115, 212, 0.1);
+    color: var(--primary-color);
+  }
+
+  @media (max-width: 991px) {
+    .nav-link {
+      padding: 0.75rem 0;
+    }
+    
+    .search-btn {
+      margin-top: 1rem;
+    }
+  }
+</style>
