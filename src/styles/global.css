@@ -1,16 +1,43 @@
 /* Importar fuente Figtree de Google Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Figtree:wght@300;400;500;600;700;800&display=swap');
 
-/* Variables de colores */
+/* Variables de colores - TEMA OSCURO */
+:root[data-theme="dark"] {
+  --primary-color: #1173d4;
+  --bg-main: #101922;
+  --bg-secondary: #0a0e14;
+  --bg-card: #1a2332;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b8c4;
+  --text-muted: #8892a0;
+  --border-color: #2a3544;
+  --shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* Variables de colores - TEMA CLARO */
+:root[data-theme="light"] {
+  --primary-color: #1173d4;
+  --bg-main: #f6f7f8;
+  --bg-secondary: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #1a1a1a;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --border-color: #e2e8f0;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+/* Por defecto: dark mode */
 :root {
   --primary-color: #1173d4;
-  --bg-light: #f6f7f8;
-  --bg-dark: #101922;
-  --text-dark: #1a1a1a;
-  --text-light: #ffffff;
-  --gray-600: #6b7280;
-  --gray-800: #1f2937;
-  --gray-900: #111827;
+  --bg-main: #101922;
+  --bg-secondary: #0a0e14;
+  --bg-card: #1a2332;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b8c4;
+  --text-muted: #8892a0;
+  --border-color: #2a3544;
+  --shadow: rgba(0, 0, 0, 0.3);
 }
 
 /* Reset y estilos base */
@@ -20,17 +47,17 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: var(--bg-light);
-  color: var(--text-dark);
-  line-height: 1.6;
-  overflow-x: hidden;
+html {
+  transition: background-color 0.3s ease;
 }
 
-body.dark-mode {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
+body {
+  font-family: 'Figtree', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  background-color: var(--bg-main);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Estilos para links */
@@ -38,6 +65,29 @@ a {
   text-decoration: none;
   color: inherit;
   transition: color 0.3s ease;
+}
+
+/* Override Bootstrap para temas dinámicos */
+.bg-white {
+  background-color: var(--bg-card) !important;
+  transition: background-color 0.3s ease;
+}
+
+.text-muted {
+  color: var(--text-muted) !important;
+}
+
+.text-gray-600,
+.card-text {
+  color: var(--text-secondary) !important;
+}
+
+.border {
+  border-color: var(--border-color) !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 2px 8px var(--shadow) !important;
 }
 
 /* Animaciones */
