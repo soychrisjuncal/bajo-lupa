@@ -1,0 +1,627 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { getPath } from '../../utils/paths.js';
+---
+
+<Layout 
+  title="Qué es el slippage: definición, cálculo y cómo reducirlo | Bajo la Lupa"
+  description="Descubre qué es el slippage, cómo se calcula, por qué afecta tu rendimiento real y técnicas para reducirlo (órdenes limit, slicing, horarios, liquidez y latencia)."
+  keywords="slippage trading, que es slippage, como calcular slippage, reducir slippage, ordenes limit, trading slippage"
+>
+  <Header />
+  
+  <article class="article-page py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          
+          <!-- Header del artículo -->
+          <header class="article-header mb-5">
+            <div class="mb-3">
+              <span class="badge bg-primary">Educación</span>
+            </div>
+            <h1 class="article-title mb-4">Qué es el slippage: definición, cálculo y cómo reducirlo</h1>
+            <p class="article-lead">Descubre qué es el slippage, cómo se calcula, por qué afecta tu rendimiento real y técnicas para reducirlo (órdenes limit, slicing, horarios, liquidez y latencia).</p>
+            <div class="article-meta">
+              <time datetime="2025-01-03">3 de enero, 2025</time>
+              <span class="separator">•</span>
+              <span>10 min de lectura</span>
+            </div>
+          </header>
+
+          <!-- Imagen destacada -->
+          <figure class="article-featured-image mb-5">
+            <img 
+              src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=1200&h=600&fit=crop" 
+              alt="Corredor de bolsa analizando gráficos"
+              class="img-fluid rounded"
+            />
+          </figure>
+
+          <!-- Contenido del artículo -->
+          <div class="article-content">
+
+            <p>El <strong>slippage</strong> es la <strong>diferencia entre el precio esperado de ejecución y el precio al que realmente se ejecuta</strong> una orden. Puede ser <strong>negativo</strong> (peor precio del esperado) o <strong>positivo</strong> (mejor precio). En mercados rápidos o con poca liquidez, el slippage negativo <strong>erosiona</strong> el rendimiento; en momentos puntuales, puede ocurrir slippage positivo.</p>
+
+            <blockquote class="blockquote-custom">
+              <p><em>Si tu backtest asume ejecuciones perfectas, el slippage es la "fricción" que separa la teoría de tu PnL real.</em></p>
+            </blockquote>
+
+            <h2>Cómo se calcula el slippage</h2>
+            
+     <ul>
+              <li>En <strong>compras</strong>: slippage &gt; 0 = peor de lo esperado; &lt; 0 = mejor.</li>
+              <li>En <strong>ventas</strong>: al revés (conviene medir en <strong>valor absoluto</strong> o en <strong>bps/pips</strong>).</li>
+            </ul>
+
+            <div class="formula-box">
+              <p class="formula-title">Fórmula del slippage:</p>
+              <code>Slippage = Precio Ejecutado - Precio Esperado</code>
+            </div>
+
+            <h3>Unidades comunes:</h3>
+            
+            <ul>
+              <li><strong>Pips</strong> (forex), <strong>ticks</strong> (futuros), <strong>centavos</strong> (acciones)</li>
+              <li><strong>Unidades monetarias</strong> (USD) por orden</li>
+              <li><strong>Puntos básicos (bps)</strong> sobre el precio</li>
+            </ul>
+
+            <div class="example-box">
+              <h4>Ejemplo simple (acciones):</h4>
+              <p>Querés comprar a 100, pero ejecutás a 100,12 → slippage = <strong>+0,12</strong> (12 centavos). Si compraste 1.000 acciones, costo implícito = <strong>USD 120</strong>.</p>
+            </div>
+
+            <h2>Por qué aparece el slippage</h2>
+
+            <div class="causes-grid">
+              <div class="cause-card">
+                <h4>Volatilidad</h4>
+                <p>El precio se mueve entre el envío y la ejecución.</p>
+              </div>
+              
+              <div class="cause-card">
+                <h4>Liquidez insuficiente</h4>
+                <p>No hay suficiente volumen al precio deseado; aparecen <strong>fills parciales</strong> a peores niveles.</p>
+              </div>
+              
+              <div class="cause-card">
+                <h4>Tamaño de la orden</h4>
+                <p>Órdenes grandes "consumen" el libro y empujan el precio.</p>
+              </div>
+              
+              <div class="cause-card">
+                <h4>Tipo de orden</h4>
+                <p><strong>Market</strong> prioriza ejecución (más slippage); <strong>limit</strong> prioriza precio (riesgo de no ejecutar).</p>
+              </div>
+              
+              <div class="cause-card">
+                <h4>Latencia/colocación</h4>
+                <p>Retrasos de red/servidor; peor en noticias y apertura.</p>
+              </div>
+              
+              <div class="cause-card">
+                <h4>Horarios críticos</h4>
+                <p>Apertura/cierre, <strong>gaps</strong> y anuncios macro/earnings.</p>
+              </div>
+            </div>
+
+            <h2>Slippage y tu estrategia: dónde pega más</h2>
+            
+            <ul>
+              <li><strong>Sistemas de alta frecuencia/scalping</strong>: una diferencia de <strong>1--3 pips/ticks</strong> puede matar la expectativa.</li>
+              <li><strong>Estrategias de breakout/stop</strong>: suelen ejecutarse <strong>cuando el mercado acelera</strong> (slippage típico).</li>
+              <li><strong>Crosses/altcoins/acciones ilíquidas</strong>: spreads amplios → más slippage.</li>
+              <li><strong>Órdenes en horarios de baja participación</strong>: libros delgados, peor calidad de ejecución.</li>
+            </ul>
+
+            <h2>Cómo medir el slippage en la práctica</h2>
+            
+            <ol>
+              <li><strong>Log de órdenes:</strong> guarda para cada trade: timestamp, precio esperado (o último), precio ejecutado, tamaño, venue.</li>
+              <li><strong>Normaliza:</strong> expresa slippage en <strong>bps/pips</strong> y como <strong>% del ATR</strong> (para comparar entre activos).</li>
+              <li><strong>Segmenta:</strong> por <strong>hora del día</strong>, <strong>tamaño</strong>, <strong>tipo de orden</strong> y <strong>evento</strong> (con/noticia).</li>
+              <li><strong>Promedio y distribución:</strong> media, mediana, desviación; mira <strong>colas</strong> (picos en noticias).</li>
+              <li><strong>P&L ajustado:</strong> resta el slippage medio a tu backtest/forward test para estimar <strong>rendimiento neto realista</strong>.</li>
+            </ol>
+
+            <h2>Cómo reducir el slippage (sin matar la ejecución)</h2>
+            
+            <ul>
+              <li><strong>Órdenes limit</strong> (o <strong>limit with protection</strong>): fijan precio máximo/mínimo aceptable; riesgo de <strong>no fill</strong>.</li>
+              <li><strong>Tamaño y slicing:</strong> dividir grandes órdenes (<strong>TWAP/VWAP</strong>) para no barrer el libro.</li>
+              <li><strong>Horario y venue:</strong> evitar apertura/cierre y elegir mercados con <strong>mejor profundidad</strong>.</li>
+              <li><strong>Spreads y ticks:</strong> preferir activos con <strong>spread estrecho</strong> y <strong>alto volumen</strong>.</li>
+              <li><strong>Anchoring al ATR:</strong> evita entrar con <strong>market</strong> cuando el rango instantáneo está "caliente".</li>
+              <li><strong>Infraestructura:</strong> baja latencia (VPS, cercanía al servidor), conexiones estables.</li>
+              <li><strong>Stop-limit</strong> en vez de stop-market: gatilla en nivel X, pero limita el precio de ejecución; reduce fills en huecos, a costa de <strong>riesgo de no ejecutar</strong>.</li>
+            </ul>
+
+            <blockquote class="blockquote-custom">
+              <p>Regla práctica: <strong>precio garantizado = ejecución no garantizada</strong> (orden limit).<br>
+              <strong>Ejecución garantizada = precio no garantizado</strong> (orden market).</p>
+            </blockquote>
+
+            <h2>Ejemplos rápidos</h2>
+
+            <div class="examples-grid">
+              <div class="example-card">
+                <h4>Forex (EUR/USD)</h4>
+                <ul>
+                  <li>Esperado: 1.10000; Ejecutado: 1.10007 → slippage = <strong>+0,7 pips</strong>.</li>
+                  <li>Con 10 lotes estándar, ese 0,7 pip <strong>importa</strong>.</li>
+                </ul>
+              </div>
+
+              <div class="example-card">
+                <h4>Acciones (mid-cap)</h4>
+                <ul>
+                  <li>Querés vender a 25,00 con market; el libro real te llena 400 a 25,00 y 600 a 24,96 → precio promedio 24,976 → slippage = <strong>−0,024</strong> vs. 25,00 (para venta, negativo es peor).</li>
+                </ul>
+              </div>
+
+              <div class="example-card">
+                <h4>Cripto (altcoin de baja liquidez)</h4>
+                <ul>
+                  <li>Spread 20 bps; compras apurado con market y "comes" el libro: slippage total <strong>45 bps</strong>. En operaciones frecuentes, esto <strong>come la expectativa</strong>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2>Impacto del slippage en backtests y paper trading</h2>
+            
+            <ul>
+              <li><strong>Backtests sin fricción</strong> <strong>sobreestiman</strong> el rendimiento.</li>
+              <li>Usa <strong>spreads históricos</strong>, <strong>slippage medio</strong> por activo y <strong>costos variables</strong>.</li>
+              <li>Simulá la cola: agrega <strong>slippage adicional</strong> en eventos (noticias, gaps).</li>
+              <li><strong>Paper trading</strong> con datos de último precio <strong>no</strong> refleja el libro (Level II) → agrega <strong>acolchado</strong> (pad) al precio de entrada/salida.</li>
+            </ul>
+
+            <h2>FAQ</h2>
+
+            <div class="faq-section">
+              <div class="faq-item">
+                <h4>¿El slippage siempre es malo?</h4>
+                <p>No. A veces obtenés <strong>slippage positivo</strong> (mejor precio). Pero, en promedio, la fricción tiende a perjudicar al trader minorista.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Orden market o limit?</h4>
+                <ul>
+                  <li><strong>Market</strong>: asegurás ejecución, <strong>pagás</strong> slippage.</li>
+                  <li><strong>Limit</strong>: asegurás precio, <strong>arriesgás</strong> no ejecutar. Podés combinar (ej.: <strong>peg orders</strong>, <strong>limit con offset</strong>).</li>
+                </ul>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Cómo sé si mi estrategia sobrevive al slippage?</h4>
+                <p>Aplica un <strong>colchón</strong>: resta el slippage medio + 1 desvío estándar. Si la expectativa sigue positiva, el sistema es más robusto.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿El broker "me corre" el precio?</h4>
+                <p>La mayoría del slippage es <strong>microestructura</strong> (liquidez/volatilidad). Aun así, compara <strong>calidad de ejecución</strong> entre brokers/venues.</p>
+              </div>
+            </div>
+
+            <!-- Artículos relacionados -->
+            <div class="related-articles mt-5 pt-5">
+              <h3 class="h4 mb-4">Ver también:</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href={getPath('articulos/garry-robot-trading.html')}>→ Garry, el robot de trading</a>
+                </li>
+                <li class="mb-2">
+                  <a href={getPath('articulos/que-es-drawdown-definicion-calculo.html')}>→ Qué es drawdown</a>
+                </li>
+                <li class="mb-2">
+                  <a href={getPath('articulos/gestion-riesgo-copy-trading.html')}>→ Gestión de riesgo 101</a>
+                </li>
+                <li class="mb-2">
+                  <a href={getPath('articulos/gestion-riesgo-copy-trading.html')}>→ Guía de copy trading</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer py-5 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img 
+              src="https://cdn2.inversorglobal.com/Cartas-Venta/2025/9.Septiembre/bajo-lupa/logo.png" 
+              alt="Bajo la Lupa" 
+              width="40"
+              height="auto"
+            />
+            <h3 class="h5 mb-0">Bajo la Lupa</h3>
+          </div>
+          <p style="color: var(--text-secondary);">
+            Tu fuente confiable de noticias y análisis del mercado financiero.
+          </p>
+        </div>
+        
+        <div class="col-lg-4">
+          <h4 class="h6 fw-bold mb-3">Enlaces Rápidos</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href={getPath('/')}>Inicio</a></li>
+            <li class="mb-2"><a href={getPath('#noticias')}>Noticias</a></li>
+     
+            <li class="mb-2"><a href={getPath('#contacto')}>Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4">
+          <h4 class="h6 fw-bold mb-3">Síguenos</h4>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+              </svg>
+            </a>
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg>
+            </a>
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="my-4" style="border-color: var(--border-color);" />
+      
+      <div class="text-center" style="color: var(--text-muted);">
+        <p class="mb-0 small">© 2025 Bajo la Lupa. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Estilos del artículo base */
+  .article-page {
+    min-height: 80vh;
+  }
+
+  .article-header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2rem;
+  }
+
+  .article-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .article-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .separator {
+    color: var(--border-color);
+  }
+
+  .article-featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+
+  /* Contenido del artículo */
+  .article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+  }
+
+  .article-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .article-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .article-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .article-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .article-content a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+  }
+
+  .article-content a:hover {
+    opacity: 0.8;
+  }
+
+  .article-content strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .article-content em {
+    font-style: italic;
+  }
+
+  /* Blockquote personalizado */
+  .blockquote-custom {
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    background-color: rgba(17, 115, 212, 0.05);
+    border-radius: 8px;
+  }
+
+  .blockquote-custom p {
+    margin-bottom: 0;
+    font-style: italic;
+  }
+
+  /* Formula box */
+  .formula-box {
+    background: linear-gradient(135deg, rgba(17, 115, 212, 0.1), rgba(17, 115, 212, 0.05));
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+
+  .formula-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .formula-box code {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: block;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+  }
+
+  /* Example box */
+  .example-box {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+
+  .example-box h4 {
+    color: #4CAF50;
+    margin-top: 0;
+  }
+
+  /* Causes Grid */
+  .causes-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .cause-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .cause-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px var(--shadow);
+  }
+
+  .cause-card h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .cause-card p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  /* Examples Grid */
+  .examples-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .example-card {
+    background: linear-gradient(135deg, rgba(17, 115, 212, 0.05), rgba(17, 115, 212, 0.02));
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+  }
+
+  .example-card h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .example-card ul {
+    margin-bottom: 0;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: 2rem;
+  }
+
+  .faq-item {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+
+  .faq-item h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item p, 
+  .faq-item ul {
+    margin-bottom: 0;
+  }
+
+  .faq-item ul {
+    padding-left: 1.5rem;
+  }
+
+  /* Artículos relacionados */
+  .related-articles {
+    border-top: 2px solid var(--border-color);
+  }
+
+  .related-articles a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+  }
+
+  .related-articles a:hover {
+    color: var(--primary-color);
+  }
+
+  /* Footer */
+.footer {
+    background-color: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease;
+  }
+
+  .footer a {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+  }
+
+  .footer a:hover {
+    color: var(--primary-color) !important;
+  }
+
+  .btn-outline-secondary {
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 1.75rem;
+    }
+
+    .article-lead {
+      font-size: 1.1rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.25rem;
+    }
+
+    .causes-grid,
+    .examples-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .formula-box,
+    .example-box,
+    .blockquote-custom {
+      padding: 1rem;
+    }
+  }
+</style>

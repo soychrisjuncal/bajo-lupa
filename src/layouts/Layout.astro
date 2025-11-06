@@ -4,7 +4,7 @@ import '../styles/global.css';
 
 interface Props {
   title: string;
-  description: string;
+  description?: string;
   image?: string;
   keywords?: string;
 }
@@ -16,7 +16,7 @@ const {
   keywords = "finanzas, mercado financiero, inversiones, bolsa, criptomonedas, economía, noticias financieras"
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const canonicalURL = new URL(Astro.url.pathname, Astro.site).toString();
 ---
 
 <!doctype html>

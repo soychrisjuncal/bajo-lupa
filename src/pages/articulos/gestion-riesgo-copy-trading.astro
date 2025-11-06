@@ -1,0 +1,1065 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import { getPath } from '../../utils/paths.js';
+---
+<Layout 
+  title="Gestión de riesgo 101: Guía completa de copy trading paso a paso | Bajo la Lupa"
+  description="Aprende a invertir con copy trading con una gestión de riesgo profesional: tamaños, drawdown, slippage, límites diarios, due diligence y plan de implementación en 4 semanas."
+  keywords="copy trading, gestion de riesgo, risk management, drawdown, slippage, diversificacion"
+>
+  <Header />
+  
+  <article class="article-page py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          
+          <!-- Header del artículo -->
+          <header class="article-header mb-5">
+            <div class="mb-3">
+              <span class="badge bg-primary">Inversiones</span>
+            </div>
+            <h1 class="article-title mb-4">Gestión de riesgo 101: Guía completa de copy trading paso a paso</h1>
+            <p class="article-lead">Aprende a invertir con copy trading con una gestión de riesgo profesional: tamaños, drawdown, slippage, límites diarios, due diligence y plan de implementación en 4 semanas.</p>
+            <div class="article-meta">
+              <time datetime="2025-01-03">3 de enero, 2025</time>
+              <span class="separator">•</span>
+              <span>15 min de lectura</span>
+            </div>
+          </header>
+
+          <!-- Imagen destacada -->
+          <figure class="article-featured-image mb-5">
+            <img 
+              src="https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=1200&h=600&fit=crop" 
+              alt="Gestión de riesgo en copy trading"
+              class="img-fluid rounded"
+            />
+          </figure>
+
+          <!-- Contenido del artículo -->
+          <div class="article-content">
+
+            <h2>1) Conceptos clave (base sólida)</h2>
+            
+            <dl class="concepts-list">
+              <dt>Copy trading</dt>
+              <dd>Replicar de forma manual o automática las operaciones de un proveedor/estrategia en tu cuenta.</dd>
+              
+              <dt>Riesgo por operación</dt>
+              <dd>% del capital que estás dispuesto a perder si el trade sale mal (ej.: 0,5%--1%).</dd>
+              
+              <dt>Relación Riesgo:Beneficio (R:B)</dt>
+              <dd>Cuánto aspirás ganar frente a lo que arriesgás (1:2, 1:3, etc.).</dd>
+              
+              <dt>Drawdown (DD)</dt>
+              <dd>Caída desde un pico de capital hasta un valle posterior.</dd>
+              
+              <dt>Time under water</dt>
+              <dd>Tiempo de recuperación desde el inicio de un DD hasta un nuevo máximo.</dd>
+              
+              <dt>Volatilidad</dt>
+              <dd>Variación del precio; a mayor volatilidad, mayor <strong>slippage</strong> y potencial de error.</dd>
+              
+              <dt>Slippage</dt>
+              <dd>Diferencia entre el precio esperado y el realmente ejecutado.</dd>
+              
+              <dt>Apalancamiento</dt>
+              <dd>Amplifica ganancias y pérdidas; úsalo con criterio.</dd>
+              
+              <dt>Diversificación</dt>
+              <dd>Repartir riesgo entre activos, marcos temporales o estrategias.</dd>
+            </dl>
+
+            <h2>2) Checklist previo (antes de copiar una estrategia)</h2>
+            
+           <ul class="checklist-simple">
+              <li><strong>Track-record verificable</strong> (historial con sellos de tiempo).</li>
+              <li><strong>Máximo drawdown</strong> histórico y reciente (por ejemplo, últimos 12 meses).</li>
+              <li><strong>Frecuencia</strong> (trades/semana), tiempo medio en mercado, horas de actividad.</li>
+              <li><strong>Rendimiento ajustado por riesgo</strong> (Sharpe/Sortino) y rachas (ganadoras/perdedoras).</li>
+              <li><strong>Reglas claras</strong>: tamaño de posición, stops, tomas de ganancia, límites diarios/semanales.</li>
+              <li><strong>Mercados</strong> operados (forex, índices, acciones, cripto), costos estimados (spreads, swaps).</li>
+              <li><strong>Compatibilidad técnica</strong> (latencia, tipo de orden, copy parcial, ejecución en tu broker).</li>
+              <li><strong>Política de comunicación</strong> (alertas, reportes, cambios de modelo).</li>
+              <li><strong>Plan de salida</strong> si la estrategia cambia o si no se ajusta a tu perfil.</li>
+            </ul>
+
+            <h2>3) Cómo dimensionar el riesgo en copy trading</h2>
+
+            <h3>3.1. Define el riesgo por trade (base)</h3>
+            
+            <p>Regla práctica: empezar con <strong>0,5%--1,0%</strong> del capital por operación.</p>
+            <p>Si tu cuenta = 2.000, riesgo 1% ⇒ <strong>$20</strong> por trade (tu pérdida máxima planificada si el stop se ejecuta).</p>
+
+            <h3>3.2. Ajusta por drawdown esperado</h3>
+            
+            <p>Si el DD histórico máximo es −20% y tu tolerancia es −10%, <strong>reduce</strong> el riesgo por trade o <strong>usa copy parcial</strong> (p. ej., 50% del tamaño del proveedor).</p>
+
+            <h3>3.3. Fórmula útil: tamaño de posición</h3>
+            
+            <div class="formula-box">
+              <code>Tamaño = (Capital × Riesgo por trade) / Distancia al stop (en $ por unidad)</code>
+            </div>
+
+            <div class="example-box">
+              <h4>Ejemplo:</h4>
+              <p>Capital 2.000; riesgo 1% (= $20); stop = $0,50 por unidad ⇒ Tamaño = <strong>40 unidades</strong>.</p>
+            </div>
+
+            <h3>3.4. Límite de pérdida diaria/semanal</h3>
+            
+            <ul>
+              <li>Límite diario sugerido: <strong>−2%</strong> del capital.</li>
+              <li>Límite semanal sugerido: <strong>−4% a −6%</strong>.</li>
+            </ul>
+            
+            <p>Si el límite se alcanza, <strong>detener el copy</strong> hasta la próxima ventana de evaluación.</p>
+
+            <h2>4) Estrategias para reducir el riesgo sin matar la expectativa</h2>
+            
+            <ul>
+              <li><strong>Copy parcial</strong>: replica <strong>x%</strong> de cada trade (ej.: 50%).</li>
+              <li><strong>Cap por posición</strong>: monto máximo por trade (ej.: <strong>no superar 2%</strong> del capital).</li>
+              <li><strong>Cap por día</strong>: máximo número de trades o pérdida total diaria.</li>
+              <li><strong>Filtro horario</strong>: desactivar copy en ventanas de <strong>altísima volatilidad</strong> (apertura, noticias).</li>
+              <li><strong>Stop-limit</strong> (en vez de stop-market) cuando sea compatible con el proveedor.</li>
+              <li><strong>Slicing</strong> en activos ilíquidos: fraccionar órdenes grandes.</li>
+              <li><strong>Diversificación de estrategias</strong>: combinar 2--3 sistemas con <strong>baja correlación</strong> (tendenciales + mean reversion + eventos).</li>
+              <li><strong>Re-balanceo mensual</strong>: recalcular tamaños según el capital actualizado y el DD reciente.</li>
+            </ul>
+
+            <h2>5) Gestión de expectativas: matemática simple que evita sorpresas</h2>
+
+            <h3>5.1. Recuperación tras un drawdown</h3>
+
+            <div class="recovery-grid">
+              <div class="recovery-header">Drawdown</div>
+              <div class="recovery-header">Retorno necesario para volver al pico</div>
+              
+              <div class="recovery-cell">−10%</div>
+              <div class="recovery-cell">+11,1%</div>
+              
+              <div class="recovery-cell">−20%</div>
+              <div class="recovery-cell">+25,0%</div>
+              
+              <div class="recovery-cell">−30%</div>
+              <div class="recovery-cell">+42,9%</div>
+              
+              <div class="recovery-cell highlight">−50%</div>
+              <div class="recovery-cell highlight"><strong>+100%</strong></div>
+            </div>
+
+            <blockquote class="blockquote-custom">
+              <p>Evitá DD profundos. Es <strong>mucho</strong> más costoso recuperarlos.</p>
+            </blockquote>
+
+            <h3>5.2. Tu sistema sobrevive al slippage si...</h3>
+            
+            <div class="formula-box">
+              <code>Expectativa = (Pg × Rg) - (Pp × Rp) &gt; Slippage medio + costos</code>
+              <p style="margin-top: 1rem; font-size: 0.95rem;">Donde Pg y Pp son las probabilidades de ganar/perder y Rg, Rp los tamaños promedio de gana/pierde.</p>
+            </div>
+
+            <p><strong>Tip</strong>: resta el <strong>slippage medio + 1σ</strong> en tus estimaciones.</p>
+
+            <h2>6) Arquitectura de una cuenta de copy trading profesional</h2>
+
+            <p><strong>Estructura sugerida</strong> (ejemplo para capital 3.000):</p>
+
+            <div class="architecture-grid">
+              <div class="arch-header">Bucket</div>
+              <div class="arch-header">Objetivo</div>
+              <div class="arch-header">% capital</div>
+              <div class="arch-header">Estrategias</div>
+              
+              <div class="arch-cell">A</div>
+              <div class="arch-cell">Conservador</div>
+              <div class="arch-cell">50%</div>
+              <div class="arch-cell">Tendencial multi-activo, baja frecuencia</div>
+              
+              <div class="arch-cell">B</div>
+              <div class="arch-cell">Moderado</div>
+              <div class="arch-cell">30%</div>
+              <div class="arch-cell">Mean reversion intradía, stops estrictos</div>
+              
+              <div class="arch-cell">C</div>
+              <div class="arch-cell">Oportunista</div>
+              <div class="arch-cell">20%</div>
+              <div class="arch-cell">Eventos/temporadas, menor tiempo en mercado</div>
+            </div>
+
+            <h3>Reglas globales</h3>
+            
+            <ul>
+              <li>Riesgo por trade: <strong>0,5%--1,0%</strong>.</li>
+              <li>Máx. posiciones simultáneas: <strong>3--5</strong>.</li>
+              <li>Límite diario: <strong>−2%</strong>; semanal <strong>−6%</strong>.</li>
+              <li>Stop de sistema: si el <strong>DD</strong> supera el <strong>1,2×</strong> del MDD histórico ⇒ <strong>pausa</strong> y revisión.</li>
+            </ul>
+
+            <h2>7) Procedimiento de due diligence del proveedor (plantilla)</h2>
+            
+            <ol>
+              <li><strong>Identidad y experiencia</strong> (años, mercados, marco temporal).</li>
+              <li><strong>Metodología</strong> (tendencial, mean reversion, eventos; reglas de entrada/salida).</li>
+              <li><strong>Estadísticas</strong> (win-rate, R:B, trades/semana, MDD, time under water).</li>
+              <li><strong>Robustez</strong> (out-of-sample, walk-forward, cambios de modelo).</li>
+              <li><strong>Costos</strong> (spreads, swaps, comisiones, retiro).</li>
+              <li><strong>Riesgos declarados</strong> (apalancamiento, horarios críticos, black swans).</li>
+              <li><strong>Comunicación</strong> (frecuencia de reportes, avisos de cambios, soporte).</li>
+              <li><strong>Compatibilidad</strong> (broker, tipo de órdenes, latencia, copy parcial).</li>
+            </ol>
+
+            <blockquote class="blockquote-custom">
+              <p>Solo copiar lo que <strong>entendés</strong>. Si no podés explicarlo en 3--4 frases claras, no lo copies.</p>
+            </blockquote>
+
+            <h2>8) Plan de acción en 4 semanas (implementación guiada)</h2>
+
+            <div class="weeks-plan">
+              <div class="week-card">
+                <div class="week-header">Semana 1 — Preparación</div>
+                <ul>
+                  <li>Crear cuenta (paper/demo si es posible).</li>
+                  <li>Definir <strong>política de riesgo</strong> (porcentajes, límites).</li>
+                  <li>Seleccionar <strong>1--2 proveedores</strong> y solicitar métricas.</li>
+                </ul>
+              </div>
+
+              <div class="week-card">
+                <div class="week-header">Semana 2 — Prueba controlada</div>
+                <ul>
+                  <li>Activar <strong>copy parcial (25%--50%)</strong>.</li>
+                  <li>Registrar <strong>slippage</strong> y <strong>costos</strong> reales.</li>
+                  <li>Verificar ejecución/latencia.</li>
+                </ul>
+              </div>
+
+              <div class="week-card">
+                <div class="week-header">Semana 3 — Escalado prudente</div>
+                <ul>
+                  <li>Si la ejecución es consistente: subir a <strong>50%--75%</strong>.</li>
+                  <li>Incluir <strong>alertas</strong> para límites diarios/semanales.</li>
+                </ul>
+              </div>
+
+              <div class="week-card">
+                <div class="week-header">Semana 4 — Operativa estable</div>
+                <ul>
+                  <li>Revisión de métricas (win-rate, R:B, DD, time under water).</li>
+                  <li>Ajustar <strong>tamaños</strong> y <strong>límites</strong>.</li>
+                  <li>Documentar <strong>reglas de pausa</strong> y <strong>re-entrada</strong>.</li>
+                </ul>
+              </div>
+            </div>
+
+            <h2>9) Errores típicos (y cómo evitarlos)</h2>
+            
+            <div class="errors-grid">
+              <div class="error-card">
+                <div class="error-title">❌ Sobredimensionar el primer mes</div>
+                <p class="error-desc">Usar 1,5%--2% de riesgo por trade de entrada.</p>
+                <div class="error-solution">✅ Empezá con <strong>0,5%--1%</strong>.</div>
+              </div>
+
+              <div class="error-card">
+                <div class="error-title">❌ Perseguir rachas</div>
+                <p class="error-desc">Subir tamaño tras varias ganancias seguidas.</p>
+                <div class="error-solution">✅ Mantener política fija.</div>
+              </div>
+
+              <div class="error-card">
+                <div class="error-title">❌ Ignorar costos</div>
+                <p class="error-desc">Backtests sin fricción.</p>
+                <div class="error-solution">✅ Incluir <strong>spreads/commissions/slippage</strong>.</div>
+              </div>
+
+              <div class="error-card">
+                <div class="error-title">❌ Overfitting por filtrado horario extremo</div>
+                <p class="error-desc">Reglas ad-hoc tras 1--2 eventos.</p>
+                <div class="error-solution">✅ Evitá reglas basadas en eventos aislados.</div>
+              </div>
+
+              <div class="error-card">
+                <div class="error-title">❌ No pausar cuando el DD supera el umbral</div>
+                <p class="error-desc">Seguir operando sin control.</p>
+                <div class="error-solution">✅ Activá <strong>stops de sistema</strong>.</div>
+              </div>
+            </div>
+
+            <h2>10) Ejemplo completo (números reales simplificados)</h2>
+
+            <div class="example-complete">
+              <div class="example-data">
+                <h4>Datos iniciales:</h4>
+                <ul>
+                  <li>Capital: <strong>$2.500</strong></li>
+                  <li>Riesgo/trade: <strong>0,8%</strong> (= $20)</li>
+                  <li>Proveedor: win-rate <strong>45%</strong>, R:B <strong>1:2</strong>, <strong>3 trades/semana</strong></li>
+                  <li>Costos + slippage medios por trade: <strong>$3</strong></li>
+                </ul>
+              </div>
+
+              <div class="example-calc">
+                <h4>Expectativa bruta por trade:</h4>
+                <div class="formula-box">
+                  <code>Eb = 0,45 × 2 - 0,55 × 1 = 0,35 (unidades de riesgo)</code>
+                  <br><br>
+                  <code>En $: 0,35 × 20 = $7</code>
+                </div>
+
+                <h4>Expectativa neta:</h4>
+                <div class="formula-box">
+                  <code>En = 7 - 3 = $4 por trade</code>
+                </div>
+
+                <p style="margin-top: 1.5rem;">Con 3 trades/semana ⇒ <strong>~$12/semana</strong> (antes de impuestos).</p>
+
+                <blockquote class="blockquote-custom" style="margin-top: 1.5rem;">
+                  <p><em>Nota: la expectativa es positiva, pero <strong>modesta</strong>. La disciplina y el tiempo son claves.</em></p>
+                </blockquote>
+              </div>
+            </div>
+
+            <h2>11) FAQ</h2>
+
+            <div class="faq-section">
+              <div class="faq-item">
+                <h4>¿Qué riesgo por operación usar en copy trading?</h4>
+                <p>Para cuentas pequeñas/medianas, empezar con <strong>0,5%--1,0%</strong> por trade. Ajustar según el <strong>DD</strong> y la <strong>frecuencia</strong>.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Es mejor copiar al 100% o en parcial?</h4>
+                <p>Empezar <strong>parcial</strong> (25%--50%) permite medir slippage y costes. Escalar tras 2--4 semanas consistentes.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Cómo sé si debo pausar el copy?</h4>
+                <p>Si el <strong>DD</strong> supera el <strong>1,2×</strong> del máximo histórico o si el <strong>slippage</strong> se dispara en ciertos horarios/activos.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Copy manual o automático?</h4>
+                <p>Automático reduce errores de implementación; manual te <strong>permite filtrar</strong> horarios/eventos. Combinar según tu disponibilidad.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Qué apalancamiento usar?</h4>
+                <p>Usá el <strong>mínimo necesario</strong>. El apalancamiento solo acelera el DD si el sistema entra en racha negativa.</p>
+              </div>
+            </div>
+
+            <h2>12) Una forma fácil de empezar</h2>
+
+            <div class="cta-box">
+              <p>Si buscás una forma simple de empezar con copy trading, el robot de Inversor Global <strong>Garry</strong> puede ser una alternativa para ti.</p>
+              <p>Puedes ver nuestra entrada sobre Garry, sus puntos a favor y en contra en el siguiente enlace:</p>
+             <a href="/articulos/garry-robot-trading.html" class="cta-button">
+                Ver análisis completo de Garry →
+              </a>
+            </div>
+
+            <!-- Artículos relacionados -->
+            <div class="related-articles mt-5 pt-5">
+              <h3 class="h4 mb-4">Ver también:</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                  <a href="/articulos/garry-robot-trading.html">→ Garry, el robot de trading</a>
+                </li>
+                <li class="mb-2">
+                  <a href="/articulos/que-es-slippage-definicion-calculo.html">→ Qué es slippage</a>
+                </li>
+                <li class="mb-2">
+                  <a href="/articulos/que-es-drawdown-definicion-calculo.html">→ Qué es drawdown</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer py-5 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img 
+              src="https://cdn2.inversorglobal.com/Cartas-Venta/2025/9.Septiembre/bajo-lupa/logo.png" 
+              alt="Bajo la Lupa" 
+              width="40"
+              height="auto"
+            />
+            <h3 class="h5 mb-0">Bajo la Lupa</h3>
+          </div>
+          <p style="color: var(--text-secondary);">
+            Tu fuente confiable de noticias y análisis del mercado financiero.
+          </p>
+        </div>
+        
+        <div class="col-lg-4">
+          <h4 class="h6 fw-bold mb-3">Enlaces Rápidos</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/" class="text-decoration-none">Inicio</a></li>
+            <li class="mb-2"><a href="/#noticias" class="text-decoration-none">Noticias</a></li>
+     
+            <li class="mb-2"><a href="/#contacto" class="text-decoration-none">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4">
+          <h4 class="h6 fw-bold mb-3">Síguenos</h4>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+              </svg>
+            </a>
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg>
+            </a>
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="my-4" style="border-color: var(--border-color);" />
+      
+      <div class="text-center" style="color: var(--text-muted);">
+        <p class="mb-0 small">© 2025 Bajo la Lupa. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Estilos base del artículo */
+  .article-page {
+    min-height: 80vh;
+  }
+
+  .article-header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2rem;
+  }
+
+  .article-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .article-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .separator {
+    color: var(--border-color);
+  }
+
+  .article-featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+
+  /* Contenido del artículo */
+  .article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+  }
+
+  .article-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .article-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .article-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .article-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .article-content a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+  }
+
+  .article-content a:hover {
+    opacity: 0.8;
+  }
+
+  .article-content strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* Concepts List (Definition List) */
+  .concepts-list {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .concepts-list dt {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+  }
+
+  .concepts-list dt:first-child {
+    margin-top: 0;
+  }
+
+  .concepts-list dd {
+    margin-left: 1.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 0;
+  }
+
+  /* Checklist Simple */
+  .checklist-simple {
+    list-style: none;
+    padding: 0;
+    margin: 2rem 0;
+    padding-left: 0 !important;
+  }
+
+  .checklist-simple li {
+    background-color: var(--bg-card);
+    border-left: 4px solid #4CAF50;
+    padding: 1rem 1.25rem;
+    margin-bottom: 0.75rem;
+    border-radius: 8px;
+    font-size: 1.05rem;
+    line-height: 1.6;
+    position: relative;
+    padding-left: 2.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .checklist-simple li:before {
+    content: "✓";
+    position: absolute;
+    left: 1rem;
+    color: #4CAF50;
+    font-weight: bold;
+    font-size: 1.25rem;
+  }
+
+  .checklist-simple li:hover {
+    background-color: rgba(76, 175, 80, 0.05);
+    transform: translateX(4px);
+  }
+
+  /* Blockquote */
+  .blockquote-custom {
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    background-color: rgba(17, 115, 212, 0.05);
+    border-radius: 8px;
+  }
+
+  .blockquote-custom p {
+    margin-bottom: 0;
+    font-style: italic;
+  }
+
+  /* Formula box */
+  .formula-box {
+    background: linear-gradient(135deg, rgba(17, 115, 212, 0.1), rgba(17, 115, 212, 0.05));
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+
+  .formula-box code {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: block;
+    font-size: 1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .formula-box code:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Example box */
+  .example-box {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+
+  .example-box h4 {
+    color: #4CAF50;
+    margin-top: 0;
+  }
+
+  /* Recovery Grid (reusable) */
+  .recovery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 2rem 0;
+    background-color: var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+
+  .recovery-header {
+    background: linear-gradient(135deg, var(--primary-color), #0d5ba8);
+    color: white;
+    padding: 1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .recovery-cell {
+    background-color: var(--bg-card);
+    padding: 0.75rem 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  .recovery-cell.highlight {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.1));
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  /* Architecture Grid */
+  .architecture-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin: 2rem 0;
+    background-color: var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+
+  .arch-header {
+    background: linear-gradient(135deg, var(--primary-color), #0d5ba8);
+    color: white;
+    padding: 1rem;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .arch-cell {
+    background-color: var(--bg-card);
+    padding: 0.75rem;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  /* Weeks Plan */
+  .weeks-plan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .week-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .week-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px var(--shadow);
+  }
+
+  .week-header {
+    background: linear-gradient(135deg, var(--primary-color), #0d5ba8);
+    color: white;
+    padding: 1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .week-card ul {
+    padding: 1.5rem;
+    margin: 0;
+    list-style: none;
+  }
+
+  .week-card li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+  }
+
+  .week-card li:before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  .week-card li:last-child {
+    margin-bottom: 0;
+  }
+
+  /* Errors Grid */
+  .errors-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .error-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .error-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px var(--shadow);
+  }
+
+  .error-title {
+    color: #FF5722;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    font-size: 1.05rem;
+  }
+
+  .error-desc {
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+  }
+
+  .error-solution {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 3px solid #4CAF50;
+    padding: 0.75rem;
+    border-radius: 4px;
+    font-size: 0.95rem;
+    color: var(--text-primary);
+  }
+
+  /* Example Complete */
+  .example-complete {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 2rem 0;
+  }
+
+  .example-data,
+  .example-calc {
+    margin-bottom: 2rem;
+  }
+
+  .example-calc:last-child,
+  .example-data:last-child {
+    margin-bottom: 0;
+  }
+
+  .example-complete h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+  }
+
+  .example-complete ul {
+    list-style: none;
+    padding-left: 0;
+  }
+
+  .example-complete li {
+    padding-left: 1.5rem;
+    position: relative;
+    margin-bottom: 0.5rem;
+  }
+
+  .example-complete li:before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--primary-color);
+    font-weight: bold;
+  }
+
+  /* CTA Box */
+  .cta-box {
+    background: linear-gradient(135deg, rgba(17, 115, 212, 0.1), rgba(17, 115, 212, 0.05));
+    border: 2px solid var(--primary-color);
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    margin: 3rem 0;
+  }
+
+  .cta-box p {
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-box .btn {
+    margin-top: 1rem;
+  }
+
+  .cta-button {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--primary-color), #0d5ba8);
+    color: white !important;
+    padding: 1rem 2rem;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(17, 115, 212, 0.3);
+    margin-top: 1rem;
+  }
+
+  .cta-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(17, 115, 212, 0.4);
+    opacity: 1;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: 2rem;
+  }
+
+  .faq-item {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+
+  .faq-item h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item p {
+    margin-bottom: 0;
+  }
+
+  /* Related articles */
+  .related-articles {
+    border-top: 2px solid var(--border-color);
+  }
+
+  .related-articles a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+  }
+
+  .related-articles a:hover {
+    color: var(--primary-color);
+  }
+
+  /* Footer */
+  .footer {
+    background-color: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease;
+  }
+
+  .footer a {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+  }
+
+  .footer a:hover {
+    color: var(--primary-color) !important;
+  }
+
+  .btn-outline-secondary {
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+
+     
+    .article-title {
+      font-size: 1.75rem;
+    }
+
+    .article-lead {
+      font-size: 1.1rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.25rem;
+    }
+
+    .checklist-grid,
+    .weeks-plan,
+    .errors-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .recovery-grid,
+    .architecture-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      background-color: transparent;
+    }
+
+    .recovery-grid > div,
+    .architecture-grid > div {
+      border-radius: 8px;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+  .recovery-header,
+    .arch-header {
+      display: none;
+    }
+
+    .formula-box,
+    .example-box,
+    .blockquote-custom {
+      padding: 1rem;
+    }
+
+    .concepts-list {
+      padding: 1.5rem;
+    }
+
+    .example-complete {
+      padding: 1.5rem;
+    }
+
+    .cta-box {
+      padding: 1.5rem;
+    }
+
+       .cta-box {
+      padding: 1.5rem;
+    }
+
+    .cta-button {
+      width: 100%;
+      text-align: center;
+      padding: 0.875rem 1.5rem;
+      font-size: 0.95rem;
+    }
+
+
+    .checklist-simple li {
+      font-size: 0.95rem;
+      padding: 0.875rem 1rem;
+      padding-left: 2.25rem;
+    }
+
+    .checklist-simple li:before {
+      font-size: 1.1rem;
+      left: 0.75rem;
+    }
+  }
+</style>

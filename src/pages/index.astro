@@ -2,36 +2,78 @@
 import Layout from '../layouts/Layout.astro';
 import Header from '../components/Header.astro';
 import NewsCard from '../components/NewsCard.astro';
+import { getPath } from '../utils/paths.js';
 
 const newsArticles = [
+
+{
+  title: "¿Por qué Bitcoin es la criptomoneda número uno del mundo?",
+  description: "Conocé las razones por las que Bitcoin es la criptomoneda número uno: su origen, tecnología, adopción global y el rol que cumple como reserva digital de valor.",
+  image: "https://plus.unsplash.com/premium_photo-1663931932716-3086b87f2ed1?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+  link: "/articulos/por-que-bitcoin-es-la-criptomoneda-numero-uno-del-mundo.html",
+  category: "Inversiones"
+},
+
+{
+  title: "¿Qué es una criptomoneda y cómo funciona?",
+  description: "Descubrí qué es una criptomoneda, cómo funciona la tecnología blockchain y por qué está revolucionando el sistema financiero global.",
+  image: "https://images.unsplash.com/photo-1621504450181-5d356f61d307?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=687",
+  link: "/articulos/que-es-una-criptomoneda-y-como-funciona.html",
+  category: "Inversiones"
+},
+
+{
+  title: "Scalping en trading: la estrategia de las operaciones rápidas",
+  description: "El scalping es una técnica de trading que busca pequeñas ganancias en operaciones rápidas. Descubrí cómo funciona, sus ventajas y qué perfil de trader lo usa.",
+  image: "https://images.unsplash.com/photo-1620266757065-5814239881fd?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&",
+  link: "/articulos/scalping-en-trading-la-estrategia-de-las-operaciones-rapidas.html",
+  category: "Trading"
+},
+
+{
+  title: "¿Qué es el trading y cómo empezar paso a paso?",
+  description: "¿Querés aprender qué es el trading y cómo empezar a operar en los mercados financieros? Conocé los tipos de trading, herramientas y consejos para principiantes.",
+  image: "https://images.unsplash.com/photo-1535320903710-d993d3d77d29?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1170",
+  link: "/articulos/que-es-el-trading-y-como-empezar-paso-a-paso.html",
+  category: "Trading"
+},
+
+{
+  title: "¿Qué es el apalancamiento en trading y cómo funciona?",
+  description: "Descubrí qué es el apalancamiento en trading, cómo funciona y por qué puede multiplicar tanto las ganancias como las pérdidas. Aprendé a usarlo con responsabili",
+  image: "https://images.unsplash.com/photo-1563986768711-b3bde3dc821e?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1168",
+  link: "/articulos/que-es-el-apalancamiento-en-trading-y-como-funciona.html",
+  category: "Trading"
+},
+
   {
     title: "Garry, ¿funciona el robot de trading de Inversor Global?",
     description: "Análisis escéptico de Garry (robot de trading de Inversor Global): cómo opera, copy trading con Exness, riesgos, resultados, costos y si vale la pena.",
     image: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?w=800&h=500&fit=crop",
-    link: "/articulos/garry-robot-trading-inversor-global",
+    link: "/articulos/garry-robot-trading.html",
     category: "Trading"
   },
   {
-    title: "Qué es el slippage: definición, cálculo y cómo reducirlo",
-    description: "Descubre qué es el slippage, cómo se calcula, por qué afecta tu rendimiento real y técnicas para reducirlo (órdenes limit, slicing, horarios, liquidez y latencia).",
-    image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop",
-    link: "/articulos/que-es-slippage-definicion-calculo",
-    category: "Educación"
-  },
-  {
-    title: "Qué es el drawdown: definición, cálculo y por qué es clave en trading",
-    description: "Aprende qué es el drawdown, cómo calcular el máximo drawdown (MDD), por qué afecta tu estrategia y cómo reducirlo con gestión de riesgo y diversificación.",
-    image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
-    link: "/articulos/que-es-drawdown-definicion-calculo",
-    category: "Análisis"
-  },
-  {
-    title: "Gestión de riesgo 101: Guía completa de copy trading paso a paso",
-    description: "Aprende a invertir con copy trading con una gestión de riesgo profesional: tamaños, drawdown, slippage, límites diarios, due diligence y plan de implementación en 4 semanas.",
-    image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=500&fit=crop",
-    link: "/articulos/gestion-riesgo-copy-trading",
-    category: "Inversiones"
-  }
+  title: "Qué es el slippage: definición, cálculo y cómo reducirlo",
+  description: "Descubre qué es el slippage, cómo se calcula, por qué afecta tu rendimiento real y técnicas para reducirlo (órdenes limit, slicing, horarios, liquidez y latencia).",
+  image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=500&fit=crop",
+  link: "/articulos/que-es-slippage-definicion-calculo.html",
+  category: "Educación"
+},
+{
+  title: "Qué es el drawdown: definición, cálculo y por qué es clave en trading",
+  description: "Aprende qué es el drawdown, cómo calcular el máximo drawdown (MDD), por qué afecta tu estrategia y cómo reducirlo con gestión de riesgo y diversificación.",
+  image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop",
+  link: "/articulos/que-es-drawdown-definicion-calculo.html",
+  category: "Análisis"
+},
+{
+  title: "Gestión de riesgo 101: Guía completa de copy trading paso a paso",
+  description: "Aprende a invertir con copy trading con una gestión de riesgo profesional: tamaños, drawdown, slippage, límites diarios, due diligence y plan de implementación en 4 semanas.",
+  image: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=800&h=500&fit=crop",
+  link: "articulos/gestion-riesgo-copy-trading.html",
+  category: "Inversiones"
+}
 ];
 ---
 
@@ -57,7 +99,7 @@ const newsArticles = [
               <a href="#noticias" class="btn btn-primary btn-lg px-4">
                 Ver Noticias
               </a>
-              <a href="/suscribirse" class="btn btn-outline-primary btn-lg px-4">
+              <a href="/#contacto" class="btn btn-outline-primary btn-lg px-4">
                 Suscribirse
               </a>
             </div>
@@ -71,7 +113,7 @@ const newsArticles = [
       <div class="container">
         <div class="d-flex justify-content-between align-items-center mb-5">
           <h2 class="h3 fw-bold mb-0">Artículos Recientes</h2>
-          <a href="/todos-los-articulos" class="text-primary fw-semibold text-decoration-none">
+          <a href={getPath('todos-los-articulos.html')} class="text-primary fw-semibold text-decoration-none">
             Ver todos →
           </a>
         </div>
@@ -86,8 +128,8 @@ const newsArticles = [
       </div>
     </section>
 
-    <!-- Newsletter Section -->
-    <section class="newsletter-section py-5 mt-5">
+   <!-- Newsletter Section -->
+    <section id="contacto" class="newsletter-section py-5 mt-5">
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto">
@@ -96,27 +138,50 @@ const newsArticles = [
               <p class="mb-4">
                 Recibe las últimas noticias financieras directamente en tu correo. Sin spam, solo contenido de valor.
               </p>
-              <form class="row g-3 justify-content-center">
+              
+              <!-- Formulario -->
+              <form id="newsletter-form" class="row g-3 justify-content-center">
                 <div class="col-md-7">
                   <input 
                     type="email" 
+                    id="email-input"
                     class="form-control form-control-lg" 
                     placeholder="tu@email.com"
                     required
                   />
                 </div>
                 <div class="col-md-auto">
-                  <button type="submit" class="btn btn-primary btn-lg w-100">
-                    Suscribirse
+                  <button type="submit" id="submit-btn" class="btn btn-primary btn-lg w-100">
+                    <span id="btn-text">Suscribirse</span>
+                    <span id="btn-loading" class="d-none">
+                      <span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                      Enviando...
+                    </span>
                   </button>
                 </div>
               </form>
+
+              <!-- Mensajes de respuesta -->
+          
             </div>
           </div>
         </div>
       </div>
     </section>
   </main>
+
+   <!-- Toast Container -->
+  <div class="toast-container position-fixed top-0 end-0 p-3" style="z-index: 9999;">
+    <div id="newsletter-toast" class="toast align-items-center border-0" role="alert" aria-live="assertive" aria-atomic="true">
+      <div class="d-flex">
+        <div class="toast-body">
+          <span id="toast-icon" class="me-2"></span>
+          <span id="toast-message"></span>
+        </div>
+        <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast" aria-label="Close"></button>
+      </div>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="footer py-5 mt-5">
@@ -139,11 +204,11 @@ const newsArticles = [
         
         <div class="col-lg-4">
           <h4 class="h6 fw-bold mb-3">Enlaces Rápidos</h4>
-          <ul class="list-unstyled">
-            <li class="mb-2"><a href="/" class="text-decoration-none">Inicio</a></li>
-            <li class="mb-2"><a href="/articulos" class="text-decoration-none">Artículos</a></li>
-            <li class="mb-2"><a href="/trading" class="text-decoration-none">Trading</a></li>
-            <li class="mb-2"><a href="/contacto" class="text-decoration-none">Contacto</a></li>
+         <ul class="list-unstyled">
+            <li class="mb-2"><a href={getPath('/')} class="text-decoration-none">Inicio</a></li>
+            <li class="mb-2"><a href={getPath('#noticias')} class="text-decoration-none">Noticias</a></li>
+     
+            <li class="mb-2"><a href={getPath('#contacto')} class="text-decoration-none">Contacto</a></li>
           </ul>
         </div>
         
@@ -176,6 +241,94 @@ const newsArticles = [
       </div>
     </div>
   </footer>
+
+<script is:inline>
+  (function() {
+    const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycby_aQcG1H5A4WyOYMqyqzMcvU4RyOXPxcv-5WtU2RuPRRe9IXBWNSe3BWwhmLDKyann7Q/exec';
+    
+    function iniciarFormulario() {
+      const form = document.getElementById('newsletter-form');
+      const input = document.getElementById('email-input');
+      const btn = document.getElementById('submit-btn');
+      const texto = document.getElementById('btn-text');
+      const loading = document.getElementById('btn-loading');
+      
+      if (!form || !input || !btn) return;
+      
+      form.addEventListener('submit', function(evento) {
+        evento.preventDefault();
+        
+        const correo = input.value.trim();
+        
+        if (!correo || correo.indexOf('@') === -1) {
+          mostrarMensaje('Ingresa un email válido', 'error');
+          return;
+        }
+        
+        btn.disabled = true;
+        texto.classList.add('d-none');
+        loading.classList.remove('d-none');
+        
+        fetch(SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            email: correo,
+            origen: 'Web - Bajo la Lupa'
+          })
+        })
+        .then(function() {
+          mostrarMensaje('¡Gracias por suscribirte! Revisa tu correo.', 'success');
+          input.value = '';
+        })
+        .catch(function() {
+          mostrarMensaje('Hubo un error. Intenta nuevamente.', 'error');
+        })
+        .finally(function() {
+          btn.disabled = false;
+          texto.classList.remove('d-none');
+          loading.classList.add('d-none');
+        });
+      });
+    }
+    
+    function mostrarMensaje(texto, tipo) {
+      const toast = document.getElementById('newsletter-toast');
+      const icono = document.getElementById('toast-icon');
+      const mensaje = document.getElementById('toast-message');
+      
+      if (!toast || !icono || !mensaje) return;
+      
+      if (tipo === 'success') {
+        icono.textContent = '✓';
+        toast.classList.remove('error');
+        toast.classList.add('success');
+      } else {
+        icono.textContent = '✕';
+        toast.classList.remove('success');
+        toast.classList.add('error');
+      }
+      
+      mensaje.textContent = texto;
+      
+      const bsToast = new window.bootstrap.Toast(toast, {
+        autohide: true,
+        delay: 5000
+      });
+      
+      bsToast.show();
+    }
+    
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', iniciarFormulario);
+    } else {
+      iniciarFormulario();
+    }
+  })();
+</script>
+
+
 </Layout>
 
 <style>
@@ -260,4 +413,68 @@ const newsArticles = [
       padding: 2rem 1.5rem !important;
     }
   }
+
+
+/* Estilos para mensajes de respuesta */
+ /* Toast personalizado */
+  .toast {
+    min-width: 350px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    border-radius: 12px;
+    font-weight: 500;
+  }
+
+  .toast.success {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    color: white;
+  }
+
+  .toast.error {
+    background: linear-gradient(135deg, #f44336, #d32f2f);
+    color: white;
+  }
+
+  .toast-body {
+    padding: 1rem 0.75rem;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+  #toast-icon {
+    font-size: 1.5rem;
+    display: inline-block;
+  }
+
+  .btn-close-white {
+    filter: brightness(0) invert(1);
+  }
+
+  @media (max-width: 576px) {
+    .toast {
+      min-width: 280px;
+    }
+
+    .toast-container {
+      padding: 1rem !important;
+    }
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .spinner-border-sm {
+    width: 1rem;
+    height: 1rem;
+    border-width: 0.2em;
+  }
+
 </style>

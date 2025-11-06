@@ -1,0 +1,691 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+---
+
+<Layout 
+  title="Qué es el drawdown: definición, cálculo y por qué es clave en trading | Bajo la Lupa"
+  description="Aprende qué es el drawdown, cómo calcular el máximo drawdown (MDD), por qué afecta tu estrategia y cómo reducirlo con gestión de riesgo y diversificación."
+  keywords="drawdown, maximo drawdown, MDD, trading drawdown, calcular drawdown, gestion de riesgo"
+>
+  <Header />
+  
+  <article class="article-page py-5">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 mx-auto">
+          
+          <!-- Header del artículo -->
+          <header class="article-header mb-5">
+            <div class="mb-3">
+              <span class="badge bg-primary">Análisis</span>
+            </div>
+            <h1 class="article-title mb-4">Qué es el drawdown: definición, cálculo y por qué es clave en trading</h1>
+            <p class="article-lead">Aprende qué es el drawdown, cómo calcular el máximo drawdown (MDD), por qué afecta tu estrategia y cómo reducirlo con gestión de riesgo y diversificación.</p>
+            <div class="article-meta">
+              <time datetime="2025-01-03">3 de enero, 2025</time>
+              <span class="separator">•</span>
+              <span>9 min de lectura</span>
+            </div>
+          </header>
+
+          <!-- Imagen destacada -->
+          <figure class="article-featured-image mb-5">
+            <img 
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=600&fit=crop" 
+              alt="Análisis de mercado y drawdown"
+              class="img-fluid rounded"
+            />
+          </figure>
+
+          <!-- Contenido del artículo -->
+          <div class="article-content">
+
+            <p>El <strong>drawdown</strong> es la caída que sufre una cuenta o cartera desde un <strong>máximo histórico</strong> (peak) hasta el <strong>mínimo posterior</strong> (trough), medida normalmente en <strong>porcentaje</strong>. Sirve para responder una pregunta clave:</p>
+
+            <blockquote class="blockquote-custom">
+              <p><em>¿Cuánto puede "doler" una estrategia antes de volver a recuperarse?</em></p>
+            </blockquote>
+
+            <p>Para análisis profesionales se usa sobre todo el <strong>Máximo Drawdown (MDD)</strong>, que es la mayor caída observada en todo el historial.</p>
+
+            <h2>Cómo se calcula el drawdown (paso a paso)</h2>
+            
+            <ol>
+              <li>Registra el <strong>valor de la cartera</strong> tras cada operación o cada cierre diario/semanal (equity curve).</li>
+              <li>Mantén un <strong>máximo acumulado</strong> (peak) desde el inicio.</li>
+              <li>En cada punto, calcula la caída respecto a ese peak:</li>
+              <li>El <strong>Máximo Drawdown (MDD)</strong> es el <strong>mínimo</strong> de todos esos valores (el más negativo).</li>
+            </ol>
+
+            <div class="formula-box">
+              <p class="formula-title">Fórmula del drawdown:</p>
+              <code>DD(t) = (Valor(t) - Peak) / Peak</code>
+              <br><br>
+              <code>MDD = min(DD(t)) para todo t</code>
+            </div>
+
+            <div class="example-box">
+              <h4>Ejemplo rápido:</h4>
+              <ul>
+                <li>Equity sube a 10.000 → peak = 10.000.</li>
+                <li>Baja a 8.200 → DD = (8.200 − 10.000) / 10.000 = <strong>−18%</strong>.</li>
+                <li>Luego sube a 9.600 (nuevo DD = −4%) y más tarde cae a 7.900 → DD = <strong>−21%</strong>.</li>
+                <li>El <strong>MDD</strong> observado hasta aquí es <strong>21%</strong>.</li>
+              </ul>
+            </div>
+
+            <h2>Drawdown y "matemática de la recuperación"</h2>
+            
+            <p>Cuanto mayor el DD, <strong>más cuesta volver al pico</strong>:</p>
+
+            <div class="recovery-grid">
+              <div class="recovery-header">Drawdown</div>
+              <div class="recovery-header">Retorno necesario para recuperar</div>
+              
+              <div class="recovery-cell">−10%</div>
+              <div class="recovery-cell">+11,1%</div>
+              
+              <div class="recovery-cell">−20%</div>
+              <div class="recovery-cell">+25,0%</div>
+              
+              <div class="recovery-cell">−30%</div>
+              <div class="recovery-cell">+42,9%</div>
+              
+              <div class="recovery-cell">−40%</div>
+              <div class="recovery-cell">+66,7%</div>
+              
+              <div class="recovery-cell highlight">−50%</div>
+              <div class="recovery-cell highlight"><strong>+100%</strong></div>
+            </div>
+
+            <p>Un DD de −50% requiere <strong>duplicar</strong> el capital para volver al máximo. Por eso, controlar el drawdown es tan importante como buscar rentabilidad.</p>
+
+            <h2>Por qué el drawdown importa más de lo que crees</h2>
+            
+            <ul>
+              <li><strong>Riesgo real percibido:</strong> muestra el "sufrimiento" máximo que podrías tolerar.</li>
+              <li><strong>Sostenibilidad:</strong> curvas suaves son más fáciles de <strong>seguir sin abandonar</strong> la estrategia.</li>
+              <li><strong>Comparabilidad:</strong> dos estrategias con igual rendimiento anual pueden tener <strong>DD muy distintos</strong> (y eso cambia todo).</li>
+              <li><strong>Asignación de capital:</strong> ayuda a decidir <strong>tamaño de posición</strong>, <strong>apalancamiento</strong> y <strong>diversificación</strong>.</li>
+            </ul>
+
+            <h2>Tipos de drawdown que conviene mirar</h2>
+            
+            <div class="types-grid">
+              <div class="type-card">
+                <h4>Máximo drawdown (MDD)</h4>
+                <p>El peor "pozo" histórico.</p>
+              </div>
+              
+              <div class="type-card">
+                <h4>Average drawdown</h4>
+                <p>Promedio de caídas; útil para expectativa de "dolor" habitual.</p>
+              </div>
+              
+              <div class="type-card">
+                <h4>Time under water</h4>
+                <p>Tiempo que se tarda en recuperar un pico; una métrica <strong>infravalorada</strong>.</p>
+              </div>
+              
+              <div class="type-card">
+                <h4>Ulcer Index</h4>
+                <p>Combina profundidad y duración del DD (más sensible a rachas largas).</p>
+              </div>
+            </div>
+
+            <h2>Buenas prácticas para medirlo bien</h2>
+            
+            <ul>
+              <li><strong>Serie consistente:</strong> usa cierres diarios/semanales u operaciones, pero <strong>no mezcles</strong>.</li>
+              <li><strong>Periodo suficiente:</strong> un backtest corto <strong>subestima</strong> el MDD.</li>
+              <li><strong>Evita sesgos:</strong> incluye fases de mercado disímiles (tendencial, lateral, shock).</li>
+              <li><strong>Out-of-sample:</strong> valida con datos no usados para diseñar la estrategia.</li>
+              <li><strong>Incluye costos reales:</strong> comisiones, spreads, swaps, slippage.</li>
+            </ul>
+
+            <h2>Cómo reducir el drawdown (sin prometer imposibles)</h2>
+            
+            <ul>
+              <li><strong>Tamaño de posición</strong> fijo o fraccional (ej. 0,5%--1% por operación).</li>
+              <li><strong>Stops y reglas de salida</strong> claras (stop-loss / take-profit / trailing).</li>
+              <li><strong>Diversificación</strong> por activos, marcos temporales o factores.</li>
+              <li><strong>Límites de pérdida</strong> diarios/semanales (cortar sesión si se supera).</li>
+              <li><strong>Menos apalancamiento:</strong> el apalancamiento amplifica DD y estrés.</li>
+            </ul>
+
+            <h2>Errores comunes (y cómo evitarlos)</h2>
+            
+            <ul>
+              <li><strong>Optimizar solo para rentabilidad</strong>: suele llevar a curvas con DD extremos.</li>
+              <li><strong>Ignorar la duración del DD</strong>: no es solo cuánto cae, sino <strong>cuánto tarda</strong> en recuperarse.</li>
+              <li><strong>Backtests "limpios"</strong> sin costos: <strong>subestiman</strong> el drawdown real.</li>
+              <li><strong>Cambiar de sistema</strong> en el fondo del DD: cristaliza pérdidas y <strong>reinicia</strong> el ciclo.</li>
+            </ul>
+
+            <h2>Ejemplo comparativo (misma rentabilidad, riesgo distinto)</h2>
+
+            <div class="comparison-strategies">
+              <div class="strategy-header">Estrategia</div>
+              <div class="strategy-header">Rentabilidad anual</div>
+              <div class="strategy-header">Máx. drawdown</div>
+              <div class="strategy-header">Time under water (mediana)</div>
+              
+              <div class="strategy-cell">A (suave)</div>
+              <div class="strategy-cell">15%</div>
+              <div class="strategy-cell positive"><strong>−12%</strong></div>
+              <div class="strategy-cell">2 meses</div>
+              
+              <div class="strategy-cell">B (agresiva)</div>
+              <div class="strategy-cell">15%</div>
+              <div class="strategy-cell negative"><strong>−35%</strong></div>
+              <div class="strategy-cell">7 meses</div>
+            </div>
+
+            <p>La mayoría de los inversores <strong>prefiere A</strong>, aunque ganen lo mismo: la curva es más tolerable.</p>
+
+            <h2>Preguntas frecuentes (FAQ)</h2>
+
+            <div class="faq-section">
+              <div class="faq-item">
+                <h4>¿Cuál es un "buen" drawdown?</h4>
+                <p>Depende del estilo. En <strong>sistemas conservadores</strong>, DD de −5% a −15% es habitual. En estrategias <strong>agresivas</strong>, −30% o más no es raro. Lo clave es que el DD sea <strong>coherente con tu perfil</strong> y con la <strong>rentabilidad esperada</strong>.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Cómo comparar estrategias con DD distintos?</h4>
+                <p>Mira <strong>MDD</strong>, <strong>time under water</strong>, <strong>volatilidad</strong>, <strong>Sharpe/Sortino</strong> y <strong>consistencia</strong> (meses positivos vs negativos). No te quedes con un solo número.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Puedo eliminar el drawdown?</h4>
+                <p>No. El objetivo es <strong>gestionarlo</strong>: dimensionar riesgo y diversificar para que sea <strong>tolerable</strong> y <strong>recuperable</strong>.</p>
+              </div>
+
+              <div class="faq-item">
+                <h4>¿Es lo mismo drawdown que volatilidad?</h4>
+                <p>No. La <strong>volatilidad</strong> mide variación promedio; el <strong>drawdown</strong> capta <strong>caídas acumuladas desde picos</strong>---lo que sientes en la cuenta.</p>
+              </div>
+            </div>
+
+            <!-- Artículos relacionados -->
+            <div class="related-articles mt-5 pt-5">
+              <h3 class="h4 mb-4">Ver también:</h3>
+              <ul class="list-unstyled">
+                <li class="mb-2">
+                   <a href="/articulos/garry-robot-trading.html">→ Garry, el robot de trading</a>
+                </li>
+                <li class="mb-2">
+                  <a href="/articulos/que-es-slippage-definicion-calculo.html">→ Qué es slippage</a>
+                </li>
+                <li class="mb-2">
+                  <a href="/articulos/gestion-riesgo-copy-trading.html">→ Gestión de riesgo 101</a>
+                </li>
+                <li class="mb-2">
+                  <a href="/articulos/gestion-riesgo-copy-trading.html">→ Guía de copy trading</a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </article>
+
+  <!-- Footer -->
+  <footer class="footer py-5 mt-5">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="d-flex align-items-center gap-3 mb-3">
+            <img 
+              src="https://cdn2.inversorglobal.com/Cartas-Venta/2025/9.Septiembre/bajo-lupa/logo.png" 
+              alt="Bajo la Lupa" 
+              width="40"
+              height="auto"
+            />
+            <h3 class="h5 mb-0">Bajo la Lupa</h3>
+          </div>
+          <p style="color: var(--text-secondary);">
+            Tu fuente confiable de noticias y análisis del mercado financiero.
+          </p>
+        </div>
+        
+        <div class="col-lg-4">
+          <h4 class="h6 fw-bold mb-3">Enlaces Rápidos</h4>
+          <ul class="list-unstyled">
+            <li class="mb-2"><a href="/" class="text-decoration-none">Inicio</a></li>
+            <li class="mb-2"><a href="/#noticias" class="text-decoration-none">Noticias</a></li>
+     
+            <li class="mb-2"><a href="/#contacto" class="text-decoration-none">Contacto</a></li>
+          </ul>
+        </div>
+        
+        <div class="col-lg-4">
+          <h4 class="h6 fw-bold mb-3">Síguenos</h4>
+          <div class="d-flex gap-3">
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="Twitter">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.6.75Zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633Z"/>
+              </svg>
+            </a>
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+              </svg>
+            </a>
+            <a href="#" class="btn btn-outline-secondary rounded-circle p-0 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px; border-color: var(--border-color); color: var(--text-secondary);" aria-label="YouTube">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="currentColor" viewBox="0 0 16 16">
+                <path d="M8.051 1.999h.089c.822.003 4.987.033 6.11.335a2.01 2.01 0 0 1 1.415 1.42c.101.38.172.883.22 1.402l.01.104.022.26.008.104c.065.914.073 1.77.074 1.957v.075c-.001.194-.01 1.108-.082 2.06l-.008.105-.009.104c-.05.572-.124 1.14-.235 1.558a2.007 2.007 0 0 1-1.415 1.42c-1.16.312-5.569.334-6.18.335h-.142c-.309 0-1.587-.006-2.927-.052l-.17-.006-.087-.004-.171-.007-.171-.007c-1.11-.049-2.167-.128-2.654-.26a2.007 2.007 0 0 1-1.415-1.419c-.111-.417-.185-.986-.235-1.558L.09 9.82l-.008-.104A31.4 31.4 0 0 1 0 7.68v-.123c.002-.215.01-.958.064-1.778l.007-.103.003-.052.008-.104.022-.26.01-.104c.048-.519.119-1.023.22-1.402a2.007 2.007 0 0 1 1.415-1.42c.487-.13 1.544-.21 2.654-.26l.17-.007.172-.006.086-.003.171-.007A99.788 99.788 0 0 1 7.858 2h.193zM6.4 5.209v4.818l4.157-2.408L6.4 5.209z"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <hr class="my-4" style="border-color: var(--border-color);" />
+      
+      <div class="text-center" style="color: var(--text-muted);">
+        <p class="mb-0 small">© 2025 Bajo la Lupa. Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </footer>
+</Layout>
+
+<style>
+  /* Estilos del artículo base (iguales a slippage) */
+  .article-page {
+    min-height: 80vh;
+  }
+
+  .article-header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 2rem;
+  }
+
+  .article-title {
+    font-size: 2.5rem;
+    font-weight: 800;
+    line-height: 1.2;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .article-lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+  }
+
+  .article-meta {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+  }
+
+  .separator {
+    color: var(--border-color);
+  }
+
+  .article-featured-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 16px;
+    box-shadow: 0 8px 24px var(--shadow);
+  }
+
+  /* Contenido del artículo */
+  .article-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+  }
+
+  .article-content h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-top: 3rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-primary);
+  }
+
+  .article-content h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .article-content h4 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .article-content p {
+    margin-bottom: 1.5rem;
+  }
+
+  .article-content ul,
+  .article-content ol {
+    margin-bottom: 1.5rem;
+    padding-left: 2rem;
+  }
+
+  .article-content li {
+    margin-bottom: 0.75rem;
+  }
+
+  .article-content a {
+    color: var(--primary-color);
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+  }
+
+  .article-content a:hover {
+    opacity: 0.8;
+  }
+
+  .article-content strong {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  /* Blockquote */
+  .blockquote-custom {
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem 2rem;
+    margin: 2rem 0;
+    background-color: rgba(17, 115, 212, 0.05);
+    border-radius: 8px;
+  }
+
+  .blockquote-custom p {
+    margin-bottom: 0;
+    font-style: italic;
+  }
+
+  /* Formula box */
+  .formula-box {
+    background: linear-gradient(135deg, rgba(17, 115, 212, 0.1), rgba(17, 115, 212, 0.05));
+    border-left: 4px solid var(--primary-color);
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+
+  .formula-title {
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .formula-box code {
+    background-color: rgba(0, 0, 0, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    display: block;
+    font-size: 1rem;
+    color: var(--text-primary);
+  }
+
+  /* Example box */
+  .example-box {
+    background-color: rgba(76, 175, 80, 0.1);
+    border-left: 4px solid #4CAF50;
+    padding: 1.5rem;
+    margin: 2rem 0;
+    border-radius: 8px;
+  }
+
+  .example-box h4 {
+    color: #4CAF50;
+    margin-top: 0;
+  }
+
+  /* Recovery Grid */
+  .recovery-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+    margin: 2rem 0;
+    background-color: var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+
+  .recovery-header {
+    background: linear-gradient(135deg, var(--primary-color), #0d5ba8);
+    color: white;
+    padding: 1rem;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .recovery-cell {
+    background-color: var(--bg-card);
+    padding: 0.75rem 1rem;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  .recovery-cell.highlight {
+    background: linear-gradient(135deg, rgba(255, 152, 0, 0.2), rgba(255, 152, 0, 0.1));
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  /* Types Grid */
+  .types-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .type-card {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .type-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 20px var(--shadow);
+  }
+
+  .type-card h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .type-card p {
+    margin-bottom: 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+  }
+
+  /* Comparison Strategies Grid */
+  .comparison-strategies {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin: 2rem 0;
+    background-color: var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+
+  .strategy-header {
+    background: linear-gradient(135deg, var(--primary-color), #0d5ba8);
+    color: white;
+    padding: 1rem;
+    font-weight: 700;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .strategy-cell {
+    background-color: var(--bg-card);
+    padding: 0.75rem;
+    text-align: center;
+    color: var(--text-secondary);
+  }
+
+  .strategy-cell.positive {
+    color: #4CAF50;
+    font-weight: 600;
+  }
+
+  .strategy-cell.negative {
+    color: #FF5722;
+    font-weight: 600;
+  }
+
+  /* FAQ Section */
+  .faq-section {
+    margin-top: 2rem;
+  }
+
+  .faq-item {
+    background-color: var(--bg-card);
+    border: 2px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+  }
+
+  .faq-item:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 4px 12px var(--shadow);
+  }
+
+  .faq-item h4 {
+    color: var(--primary-color);
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  .faq-item p {
+    margin-bottom: 0;
+  }
+
+  /* Related articles */
+ .related-articles {
+    border-top: 2px solid var(--border-color);
+  }
+
+  .related-articles a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    font-size: 1.1rem;
+  }
+
+  .related-articles a:hover {
+    color: var(--primary-color);
+  }
+
+  /* Footer */
+  .footer {
+    background-color: var(--bg-secondary) !important;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-primary);
+    transition: background-color 0.3s ease;
+  }
+
+  .footer a {
+    color: var(--text-secondary);
+    transition: color 0.3s ease;
+  }
+
+  .footer a:hover {
+    color: var(--primary-color) !important;
+  }
+
+  .btn-outline-secondary {
+    transition: all 0.3s ease;
+  }
+
+  .btn-outline-secondary:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    color: white !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .article-title {
+      font-size: 1.75rem;
+    }
+
+    .article-lead {
+      font-size: 1.1rem;
+    }
+
+    .article-content {
+      font-size: 1rem;
+    }
+
+    .article-content h2 {
+      font-size: 1.5rem;
+    }
+
+    .article-content h3 {
+      font-size: 1.25rem;
+    }
+
+    .recovery-grid,
+    .comparison-strategies {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      background-color: transparent;
+    }
+
+    .recovery-grid > div,
+    .comparison-strategies > div {
+      border-radius: 8px;
+      box-shadow: 0 2px 8px var(--shadow);
+    }
+
+    .strategy-header,
+    .recovery-header {
+      display: none;
+    }
+
+    .strategy-cell:nth-child(4n+1)::before,
+    .recovery-cell:nth-child(odd)::before {
+      content: attr(data-label);
+      font-weight: 600;
+      display: block;
+      margin-bottom: 0.5rem;
+      color: var(--primary-color);
+    }
+
+    .types-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .formula-box,
+    .example-box,
+    .blockquote-custom {
+      padding: 1rem;
+    }
+  }
+</style>
